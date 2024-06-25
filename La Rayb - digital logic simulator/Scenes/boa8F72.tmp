@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://r2xm1wg3rc4k"]
+
+[ext_resource type="Script" path="res://Scripts/Board_Controller.gd" id="1_5hnkp"]
+[ext_resource type="PackedScene" uid="uid://4kl3x6deounf" path="res://Scenes/Wire.tscn" id="2_mxu6w"]
+[ext_resource type="PackedScene" uid="uid://ca6q4870bvy8l" path="res://Scenes/ic.tscn" id="3_jrwrp"]
+[ext_resource type="PackedScene" uid="uid://bkn46a8s4ydhb" path="res://Scenes/highlighter_square.tscn" id="3_w7s76"]
+[ext_resource type="Script" path="res://Scripts/Storage_Manager.gd" id="4_nxt6l"]
+
+[node name="Board Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="SubViewportContainer/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Board" type="Node2D" parent="SubViewportContainer/SubViewport"]
+script = ExtResource("1_5hnkp")
+wire_scene = ExtResource("2_mxu6w")
+highlighter_square_scene = ExtResource("3_w7s76")
+
+[node name="Storage Manager" type="Node2D" parent="SubViewportContainer/SubViewport/Board"]
+script = ExtResource("4_nxt6l")
+packed_ic_scene = ExtResource("3_jrwrp")

@@ -1,0 +1,683 @@
+[gd_scene load_steps=25 format=3 uid="uid://dqxmcbcenpd1n"]
+
+[ext_resource type="Script" path="res://WindowMovement.gd" id="1_7ic43"]
+[ext_resource type="Script" path="res://WindowHeader.gd" id="1_jmkrx"]
+[ext_resource type="Texture2D" uid="uid://cd2j5kp6chvfp" path="res://close.png" id="2_0qfya"]
+[ext_resource type="Texture2D" uid="uid://dkggc51omeuwx" path="res://maximize.png" id="2_qu1ja"]
+[ext_resource type="Texture2D" uid="uid://1irvujtmn7oh" path="res://minimize.png" id="2_tha6u"]
+[ext_resource type="Script" path="res://Projects List.gd" id="6_4sr65"]
+[ext_resource type="Script" path="res://Borders.gd" id="6_37w5v"]
+[ext_resource type="Script" path="res://Decision Buttons.gd" id="6_hetk8"]
+[ext_resource type="FontFile" uid="uid://bbmyuq8md5pjx" path="res://Sitka-Display.ttf" id="6_wyoat"]
+[ext_resource type="PackedScene" uid="uid://bwvbrh3bofg57" path="res://project_button.tscn" id="7_vwmbp"]
+[ext_resource type="Script" path="res://New Project Window.gd" id="10_x6x2a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydigw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygtch"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6s6i"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd8yx"]
+bg_color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avjul"]
+bg_color = Color(0.501961, 0.129412, 0.129412, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8d32o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xosv"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go5a4"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhrdw"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1wtob"]
+bg_color = Color(0.175781, 0.175781, 0.175781, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blf4m"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w6i3"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_heqs3"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_7ic43")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Inner" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Inner"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Inner/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="PanelContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ydigw")
+script = ExtResource("1_jmkrx")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Header"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Minimize" type="Button" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ygtch")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q6s6i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pd8yx")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer/Minimize"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tha6u")
+
+[node name="Maximize" type="Button" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ygtch")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q6s6i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pd8yx")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer/Maximize"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qu1ja")
+
+[node name="Close" type="Button" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ygtch")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q6s6i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_avjul")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer/Close"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0qfya")
+
+[node name="Body" type="PanelContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8d32o")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+
+[node name="Label\'s MarginContainer" type="MarginContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer/Label\'s MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer/Label\'s MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_wyoat")
+theme_override_font_sizes/font_size = 90
+text = "La Rayb"
+
+[node name="Label2" type="Label" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer/Label\'s MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_wyoat")
+theme_override_font_sizes/font_size = 36
+text = "digital logic simulator"
+
+[node name="Projects List" type="MarginContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("container")]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("6_4sr65")
+container = NodePath("VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer")
+project_button = ExtResource("7_vwmbp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer/Projects List"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer/Projects List/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Projects
+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer/Projects List/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer/Projects List/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/VBoxContainer/Projects List/VBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Decision Buttons" type="MarginContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer" node_paths=PackedStringArray("Add_Project_FileDialog", "remove_button", "run_button", "new_project_window")]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+script = ExtResource("6_hetk8")
+Add_Project_FileDialog = NodePath("../../../../../../../../Add Project FileDialog")
+remove_button = NodePath("VBoxContainer/Remove")
+run_button = NodePath("VBoxContainer/Run")
+new_project_window = NodePath("../../../../../../../../New Project Window")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons"]
+layout_mode = 2
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="New" type="Button" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_4xosv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_go5a4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhrdw")
+text = "New"
+
+[node name="Add" type="Button" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_4xosv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_go5a4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhrdw")
+text = "Add"
+
+[node name="Remove" type="Button" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_4xosv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_go5a4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhrdw")
+disabled = true
+text = "Remove"
+
+[node name="Run" type="Button" parent="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_4xosv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_go5a4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhrdw")
+disabled = true
+text = "Run"
+
+[node name="Borders" type="Control" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("6_37w5v")
+
+[node name="Top" type="Control" parent="PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 9
+
+[node name="Bottom" type="Control" parent="PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 9
+
+[node name="Right" type="Control" parent="PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="Left" type="Control" parent="PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="Top-Right" type="Control" parent="PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -5.0
+offset_bottom = 5.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 11
+
+[node name="Top-Left" type="Control" parent="PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 0
+offset_right = 5.0
+offset_bottom = 5.0
+mouse_default_cursor_shape = 12
+
+[node name="Bottom-Right" type="Control" parent="PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12
+
+[node name="Bottom-Left" type="Control" parent="PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_right = 5.0
+grow_vertical = 0
+mouse_default_cursor_shape = 11
+
+[node name="Add Project FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(600, 400)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.project")
+
+[node name="New Project Window" type="Window" parent="." node_paths=PackedStringArray("new_project_folder_FileDialog", "name_LineEdit", "path_LineEdit")]
+title = "New Prooject Window"
+initial_position = 1
+size = Vector2i(400, 200)
+visible = false
+transient = true
+exclusive = true
+borderless = true
+max_size = Vector2i(650, 200)
+script = ExtResource("10_x6x2a")
+new_project_folder_FileDialog = NodePath("New Project Folder FileDialog")
+name_LineEdit = NodePath("Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2/Project Name/LineEdit")
+path_LineEdit = NodePath("Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2/Project Path/LineEdit")
+
+[node name="New Project Folder FileDialog" type="FileDialog" parent="New Project Window"]
+title = "Open a Directory"
+initial_position = 1
+size = Vector2i(600, 400)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+
+[node name="Control" type="Control" parent="New Project Window"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_7ic43")
+
+[node name="PanelContainer" type="PanelContainer" parent="New Project Window/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Inner" type="MarginContainer" parent="New Project Window/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="New Project Window/Control/PanelContainer/Inner"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="PanelContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_1wtob")
+script = ExtResource("1_jmkrx")
+
+[node name="MarginContainer" type="MarginContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Close" type="Button" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ygtch")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q6s6i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_avjul")
+
+[node name="TextureRect" type="TextureRect" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/Close"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0qfya")
+
+[node name="Label" type="Label" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "New Project"
+
+[node name="Body" type="PanelContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="Project Name" type="HBoxContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 17
+
+[node name="Label" type="Label" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2/Project Name"]
+layout_mode = 2
+text = "Project Name:"
+
+[node name="LineEdit" type="LineEdit" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2/Project Name"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "My Cool Simulation..."
+
+[node name="Project Path" type="HBoxContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 17
+
+[node name="Label" type="Label" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2/Project Path"]
+layout_mode = 2
+text = "Path:"
+
+[node name="LineEdit" type="LineEdit" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2/Project Path"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "C:\\Users\\"
+
+[node name="Browse" type="Button" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2/Project Path"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_blf4m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5w6i3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_heqs3")
+text = "Browse"
+
+[node name="Decision Buttons" type="MarginContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/Decision Buttons"]
+layout_mode = 2
+theme_override_constants/separation = 27
+alignment = 1
+
+[node name="Cancel" type="Button" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/Decision Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_blf4m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5w6i3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_heqs3")
+text = "Cancel"
+
+[node name="Create New" type="Button" parent="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/Decision Buttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_blf4m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5w6i3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_heqs3")
+text = "Create New"
+
+[node name="Borders" type="Control" parent="New Project Window/Control/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("6_37w5v")
+min_size = Vector2(400, 180)
+
+[node name="Right" type="Control" parent="New Project Window/Control/PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="Left" type="Control" parent="New Project Window/Control/PanelContainer/Borders"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="gui_input" from="PanelContainer/Inner/PanelContainer/VBoxContainer/Header" to="PanelContainer/Inner/PanelContainer/VBoxContainer/Header" method="_on_header_gui_input"]
+[connection signal="pressed" from="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer/Minimize" to="PanelContainer/Inner/PanelContainer/VBoxContainer/Header" method="_on_minimize_pressed"]
+[connection signal="pressed" from="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer/Maximize" to="PanelContainer/Inner/PanelContainer/VBoxContainer/Header" method="_on_maximize_pressed"]
+[connection signal="pressed" from="PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/HBoxContainer/Close" to="PanelContainer/Inner/PanelContainer/VBoxContainer/Header" method="_on_close_main_window_pressed"]
+[connection signal="pressed" from="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons/VBoxContainer/New" to="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons" method="_on_new_pressed"]
+[connection signal="pressed" from="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons/VBoxContainer/Add" to="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons" method="_on_add_pressed"]
+[connection signal="pressed" from="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons/VBoxContainer/Remove" to="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons" method="_on_remove_pressed"]
+[connection signal="pressed" from="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons/VBoxContainer/Run" to="PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/HBoxContainer/Decision Buttons" method="_on_run_pressed"]
+[connection signal="gui_input" from="PanelContainer/Borders/Top" to="PanelContainer/Borders" method="_on_border_gui_input" binds= ["Top"]]
+[connection signal="gui_input" from="PanelContainer/Borders/Bottom" to="PanelContainer/Borders" method="_on_border_gui_input" binds= ["Bottom"]]
+[connection signal="gui_input" from="PanelContainer/Borders/Right" to="PanelContainer/Borders" method="_on_border_gui_input" binds= ["Right"]]
+[connection signal="gui_input" from="PanelContainer/Borders/Left" to="PanelContainer/Borders" method="_on_border_gui_input" binds= ["Left"]]
+[connection signal="gui_input" from="PanelContainer/Borders/Top-Right" to="PanelContainer/Borders" method="_on_border_gui_input" binds= ["Top-Right"]]
+[connection signal="gui_input" from="PanelContainer/Borders/Top-Left" to="PanelContainer/Borders" method="_on_border_gui_input" binds= ["Top-Left"]]
+[connection signal="gui_input" from="PanelContainer/Borders/Bottom-Right" to="PanelContainer/Borders" method="_on_border_gui_input" binds= ["Bottom-Right"]]
+[connection signal="gui_input" from="PanelContainer/Borders/Bottom-Left" to="PanelContainer/Borders" method="_on_border_gui_input" binds= ["Bottom-Left"]]
+[connection signal="gui_input" from="New Project Window/Control" to="New Project Window/Control" method="_on_gui_input"]
+[connection signal="pressed" from="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Header/MarginContainer/Close" to="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Header" method="_on_close_new_project_window_pressed"]
+[connection signal="pressed" from="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/VBoxContainer2/Project Path/Browse" to="New Project Window" method="_on_browse_pressed"]
+[connection signal="pressed" from="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/Decision Buttons/HBoxContainer/Cancel" to="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Header" method="_on_close_new_project_window_pressed"]
+[connection signal="pressed" from="New Project Window/Control/PanelContainer/Inner/PanelContainer/VBoxContainer/Body/MarginContainer/Decision Buttons/HBoxContainer/Create New" to="New Project Window" method="_on_create_new_pressed"]
+[connection signal="gui_input" from="New Project Window/Control/PanelContainer/Borders/Right" to="New Project Window/Control/PanelContainer/Borders" method="_on_border_gui_input" binds= ["Right"]]
+[connection signal="gui_input" from="New Project Window/Control/PanelContainer/Borders/Left" to="New Project Window/Control/PanelContainer/Borders" method="_on_border_gui_input" binds= ["Left"]]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfxh8ksca202d"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/BoardComponent/IO_Component/Switch.gd" id="1_oww1r"]
+[ext_resource type="PackedScene" uid="uid://7r01dbboibmx" path="res://Scenes/Interactable/Joint/pin.tscn" id="3_wgisa"]
+[ext_resource type="Texture2D" uid="uid://c3s4xep5nnh4v" path="res://Textures/input_switch_cover.png" id="4_hlurv"]
+
+[node name="Switch" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_oww1r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.144531, 0.144531, 0.144531, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_hlurv")
+
+[node name="Pin" parent="." instance=ExtResource("3_wgisa")]

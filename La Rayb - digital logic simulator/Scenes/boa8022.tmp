@@ -1,0 +1,576 @@
+[gd_scene load_steps=36 format=3 uid="uid://72q1txvajn2v"]
+
+[ext_resource type="PackedScene" uid="uid://r2xm1wg3rc4k" path="res://Scenes/board.tscn" id="1_e3tvi"]
+[ext_resource type="Texture2D" uid="uid://xj2gm8pap6ps" path="res://Textures/white plus sign.png" id="1_n7f0a"]
+[ext_resource type="PackedScene" uid="uid://ca6q4870bvy8l" path="res://Scenes/ic.tscn" id="5_mkqnr"]
+[ext_resource type="Script" path="res://Scripts/UI_Controller.gd" id="6_r1ooc"]
+[ext_resource type="PackedScene" uid="uid://ciyjx4d1y2s5c" path="res://Scenes/UI_board_element.tscn" id="6_tgj8e"]
+[ext_resource type="PackedScene" uid="uid://dfxh8ksca202d" path="res://Scenes/switch.tscn" id="7_1arkb"]
+[ext_resource type="Texture2D" uid="uid://dwekgm8etfla" path="res://Textures/ic_icon.png" id="7_bdfpp"]
+[ext_resource type="Texture2D" uid="uid://quxgarw1xsi" path="res://Textures/switch_icon.png" id="7_deqdn"]
+[ext_resource type="Texture2D" uid="uid://dsg7858uym6wd" path="res://Textures/LED_icon.png" id="7_ny4so"]
+[ext_resource type="PackedScene" uid="uid://ca53v0egy6s0i" path="res://Scenes/LED.tscn" id="8_37m3o"]
+[ext_resource type="PackedScene" uid="uid://cp11qh23k4bd8" path="res://Scenes/error_message_box.tscn" id="9_ohnqk"]
+[ext_resource type="Script" path="res://Scripts/Boards Controller.gd" id="11_an8ft"]
+[ext_resource type="Script" path="res://Scripts/UI_Elements_Displayer.gd" id="11_rkyt2"]
+[ext_resource type="PackedScene" uid="uid://c7yylxdqusxel" path="res://Scenes/ui_elements_container_v_box_container.tscn" id="12_2nluo"]
+[ext_resource type="Theme" uid="uid://dt3wnlh2fk8sq" path="res://Themes & Styles/Properties Panel/Label.tres" id="12_3yoin"]
+[ext_resource type="PackedScene" uid="uid://bkn46a8s4ydhb" path="res://Scenes/highlighter_square.tscn" id="12_8ixer"]
+[ext_resource type="StyleBox" uid="uid://650hf6gv5ala" path="res://Themes & Styles/Boards Navigator/unselected/Board_navigator_Button_Normal_Style.tres" id="13_6uji3"]
+[ext_resource type="StyleBox" uid="uid://cl4kmeb8q5sdx" path="res://Themes & Styles/Boards Navigator/selected/Board_navigator_Button_Normal_Style.tres" id="13_hlkh7"]
+[ext_resource type="Script" path="res://Scripts/Boards Navigator.gd" id="13_lnvj8"]
+[ext_resource type="PackedScene" uid="uid://4kl3x6deounf" path="res://Scenes/Wire.tscn" id="13_r6min"]
+[ext_resource type="Theme" uid="uid://ckcslhyq2yh0j" path="res://Themes & Styles/Properties Panel/LineEdit.tres" id="13_wthlx"]
+[ext_resource type="StyleBox" uid="uid://bl582r4qxl4sl" path="res://Themes & Styles/Boards Navigator/unselected/Board_navigator_Button_Hover_Style.tres" id="14_2a4ws"]
+[ext_resource type="Script" path="res://Scripts/Create_New_IC_Window.gd" id="14_67ufl"]
+[ext_resource type="StyleBox" uid="uid://b03swqvr27it8" path="res://Themes & Styles/Boards Navigator/selected/Board_navigator_Button_Hover_Style.tres" id="15_8risy"]
+[ext_resource type="Script" path="res://Scripts/custom_ICs_Window.gd" id="15_aikjr"]
+[ext_resource type="StyleBox" uid="uid://gxkjt30re4x4" path="res://Themes & Styles/Boards Navigator/unselected/Board_navigator_Button_Pressed_Style.tres" id="15_tvrbe"]
+[ext_resource type="StyleBox" uid="uid://vibijyusatrd" path="res://Themes & Styles/Boards Navigator/selected/Board_navigator_Button_Pressed_Style.tres" id="16_m4gw8"]
+[ext_resource type="PackedScene" uid="uid://cjy14j753aqqw" path="res://Scenes/board_navigator_button.tscn" id="20_qgd7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnpr5"]
+bg_color = Color(0.0820313, 0.0976563, 0.117188, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc1iu"]
+bg_color = Color(0.0823529, 0.0980392, 0.117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqm25"]
+bg_color = Color(0.101961, 0.121569, 0.141176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtkpf"]
+bg_color = Color(0.101961, 0.121569, 0.141176, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2jnr"]
+bg_color = Color(0.392157, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgwf0"]
+bg_color = Color(0, 0.392157, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr1ll"]
+bg_color = Color(0, 0, 0.392157, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("Board_MenuButton", "element_properties_PanelContainer", "Inputs_Names_VBoxContainer", "Outputs_Names_VBoxContainer", "IC_Color_VBoxContainer", "Output_Color_VBoxContainer", "IC_ColorRect", "IC_Label", "IC_R_HSlider", "IC_G_HSlider", "IC_B_HSlider", "output_ColorRect", "output_Label", "output_OptionButton", "output_R_HSlider", "output_G_HSlider", "output_B_HSlider", "create_new_IC_Window")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_r1ooc")
+Board_MenuButton = NodePath("VBoxContainer/Header PanelContainer/MarginContainer/Board MenuButton")
+error_message_box_scene = ExtResource("9_ohnqk")
+element_properties_PanelContainer = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer")
+Inputs_Names_VBoxContainer = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Inputs Names VBoxContainer")
+Outputs_Names_VBoxContainer = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Outputs Names VBoxContainer")
+IC_Color_VBoxContainer = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer")
+Output_Color_VBoxContainer = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer")
+IC_ColorRect = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer/ColorRect")
+IC_Label = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer/color_text")
+IC_R_HSlider = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer/R HSlider")
+IC_G_HSlider = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer/G HSlider")
+IC_B_HSlider = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer/B HSlider")
+output_ColorRect = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/ColorRect")
+output_Label = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/color_text")
+output_OptionButton = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/OptionButton")
+output_R_HSlider = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/R HSlider")
+output_G_HSlider = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/G HSlider")
+output_B_HSlider = NodePath("VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/B HSlider")
+create_new_IC_Window = NodePath("create new IC Window")
+metadata/_edit_vertical_guides_ = []
+metadata/_edit_horizontal_guides_ = []
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Header PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gnpr5")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Header PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Board MenuButton" type="MenuButton" parent="VBoxContainer/Header PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Board"
+item_count = 5
+popup/item_0/text = "New Board"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "Load Board"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/text = "Save Board"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+popup/item_3/text = "Save Board As..."
+popup/item_3/id = 3
+popup/item_3/disabled = true
+popup/item_4/text = "Save Board As An IC"
+popup/item_4/id = 4
+popup/item_4/disabled = true
+
+[node name="Body HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = -200
+
+[node name="elements displayer and board HSplitContainer" type="HSplitContainer" parent="VBoxContainer/Body HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+split_offset = 200
+
+[node name="UI board elements PanelContainer" type="PanelContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jc1iu")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/UI board elements PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/UI board elements PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Header HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/UI board elements PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/UI board elements PanelContainer/MarginContainer/VBoxContainer/Header HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Elements"
+horizontal_alignment = 1
+
+[node name="Elements_MenuButton" type="MenuButton" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/UI board elements PanelContainer/MarginContainer/VBoxContainer/Header HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("1_n7f0a")
+icon_alignment = 1
+expand_icon = true
+item_count = 6
+popup/item_0/text = "switch"
+popup/item_0/id = 0
+popup/item_1/text = "LED"
+popup/item_1/id = 1
+popup/item_2/text = "and"
+popup/item_2/id = 2
+popup/item_3/text = "or"
+popup/item_3/id = 3
+popup/item_4/text = "not"
+popup/item_4/id = 4
+popup/item_5/text = "Custom"
+popup/item_5/id = 5
+
+[node name="Body PanelContainer" type="PanelContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/UI board elements PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqm25")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/UI board elements PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/UI board elements PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer" node_paths=PackedStringArray("Elements_MenuButton", "board_element_name_LineEdit", "custom_ICs_Window")]
+layout_mode = 2
+horizontal_scroll_mode = 0
+script = ExtResource("11_rkyt2")
+Elements_MenuButton = NodePath("../../../Header HBoxContainer/Elements_MenuButton")
+packed_switch_scene = ExtResource("7_1arkb")
+packed_LED_scene = ExtResource("8_37m3o")
+packed_ic_scene = ExtResource("5_mkqnr")
+UI_elements_container_PackedScene = ExtResource("12_2nluo")
+UI_board_element = ExtResource("6_tgj8e")
+switch_icon = ExtResource("7_deqdn")
+LED_icon = ExtResource("7_ny4so")
+IC_icon = ExtResource("7_bdfpp")
+board_element_name_LineEdit = NodePath("../../../../../../../../../board_element_name_LineEdit")
+custom_ICs_Window = NodePath("../../../../../../../../../custom ICs Window")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Boards Navigator" type="PanelContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mtkpf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/VBoxContainer/Boards Navigator"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("13_lnvj8")
+selected_Board_navigator_Button_Normal_Style = ExtResource("13_hlkh7")
+selected_Board_navigator_Button_Hover_Style = ExtResource("15_8risy")
+selected_Board_navigator_Button_Pressed_Style = ExtResource("16_m4gw8")
+unselected_Board_navigator_Button_Normal_Style = ExtResource("13_6uji3")
+unselected_Board_navigator_Button_Hover_Style = ExtResource("14_2a4ws")
+unselected_Board_navigator_Button_Pressed_Style = ExtResource("15_tvrbe")
+Board_Navigator_Button_PackedScene = ExtResource("20_qgd7c")
+
+[node name="Boards Controller" type="Control" parent="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("11_an8ft")
+highlighter_square_scene = ExtResource("12_8ixer")
+wire_scene = ExtResource("13_r6min")
+board_scene = ExtResource("1_e3tvi")
+
+[node name="element properties PanelContainer" type="PanelContainer" parent="VBoxContainer/Body HSplitContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jc1iu")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Header HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Header HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Properties"
+horizontal_alignment = 1
+
+[node name="Body PanelContainer" type="PanelContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqm25")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="element properties VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Inputs Names VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Inputs Names VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_3yoin")
+text = "Inputs Names"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Inputs Names VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("13_wthlx")
+
+[node name="Outputs Names VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Outputs Names VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_3yoin")
+text = "Outputs Names"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Outputs Names VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("13_wthlx")
+
+[node name="IC Color VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_3yoin")
+text = "IC Color"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="color_text" type="Label" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_3yoin")
+text = "#ffffff"
+horizontal_alignment = 1
+
+[node name="R HSlider" type="HSlider" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer"]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_f2jnr")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f2jnr")
+max_value = 255.0
+value = 255.0
+
+[node name="G HSlider" type="HSlider" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer"]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vgwf0")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vgwf0")
+max_value = 255.0
+value = 255.0
+
+[node name="B HSlider" type="HSlider" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer"]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qr1ll")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_qr1ll")
+max_value = 255.0
+value = 255.0
+
+[node name="Output Color VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_3yoin")
+text = "Output Color"
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="color_text" type="Label" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_3yoin")
+text = "#ffffff"
+horizontal_alignment = 1
+
+[node name="R HSlider" type="HSlider" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer"]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_f2jnr")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f2jnr")
+max_value = 255.0
+value = 255.0
+
+[node name="G HSlider" type="HSlider" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer"]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vgwf0")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vgwf0")
+max_value = 255.0
+value = 255.0
+
+[node name="B HSlider" type="HSlider" parent="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer"]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qr1ll")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_qr1ll")
+max_value = 255.0
+value = 255.0
+
+[node name="board_element_name_LineEdit" type="LineEdit" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 67.0625
+offset_bottom = 31.0
+
+[node name="create new IC Window" type="Window" parent="." node_paths=PackedStringArray("IC_name", "IC_Color", "custom_ICs_Window")]
+initial_position = 1
+size = Vector2i(350, 300)
+visible = false
+transient = true
+exclusive = true
+min_size = Vector2i(350, 300)
+script = ExtResource("14_67ufl")
+IC_name = NodePath("Control/PanelContainer/VBoxContainer/Name HBoxContainer/LineEdit")
+IC_Color = NodePath("Control/PanelContainer/VBoxContainer/Color HBoxContainer/ColorPickerButton")
+custom_ICs_Window = NodePath("../custom ICs Window")
+
+[node name="Control" type="Control" parent="create new IC Window"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="create new IC Window/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="create new IC Window/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Name HBoxContainer" type="HBoxContainer" parent="create new IC Window/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="create new IC Window/Control/PanelContainer/VBoxContainer/Name HBoxContainer"]
+layout_mode = 2
+text = "IC Name"
+
+[node name="LineEdit" type="LineEdit" parent="create new IC Window/Control/PanelContainer/VBoxContainer/Name HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Color HBoxContainer" type="HBoxContainer" parent="create new IC Window/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="create new IC Window/Control/PanelContainer/VBoxContainer/Color HBoxContainer"]
+layout_mode = 2
+text = "IC Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="create new IC Window/Control/PanelContainer/VBoxContainer/Color HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+edit_alpha = false
+
+[node name="Decision HBoxContainer" type="HBoxContainer" parent="create new IC Window/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Create IC" type="Button" parent="create new IC Window/Control/PanelContainer/VBoxContainer/Decision HBoxContainer"]
+layout_mode = 2
+text = "Create IC"
+
+[node name="Cancel" type="Button" parent="create new IC Window/Control/PanelContainer/VBoxContainer/Decision HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="custom ICs Window" type="Window" parent="." node_paths=PackedStringArray("custom_ICs_HFlowContainer")]
+initial_position = 1
+size = Vector2i(350, 300)
+visible = false
+transient = true
+exclusive = true
+min_size = Vector2i(350, 300)
+script = ExtResource("15_aikjr")
+packed_ic_scene = ExtResource("5_mkqnr")
+custom_ICs_HFlowContainer = NodePath("Control/PanelContainer/VBoxContainer/Custom ICs ScrollContainer/MarginContainer/HFlowContainer")
+
+[node name="Control" type="Control" parent="custom ICs Window"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="custom ICs Window/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="custom ICs Window/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Custom ICs ScrollContainer" type="ScrollContainer" parent="custom ICs Window/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="custom ICs Window/Control/PanelContainer/VBoxContainer/Custom ICs ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+
+[node name="HFlowContainer" type="HFlowContainer" parent="custom ICs Window/Control/PanelContainer/VBoxContainer/Custom ICs ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Decision PanelContainer" type="PanelContainer" parent="custom ICs Window/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="custom ICs Window/Control/PanelContainer/VBoxContainer/Decision PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="custom ICs Window/Control/PanelContainer/VBoxContainer/Decision PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Add" type="Button" parent="custom ICs Window/Control/PanelContainer/VBoxContainer/Decision PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add"
+
+[node name="Delete" type="Button" parent="custom ICs Window/Control/PanelContainer/VBoxContainer/Decision PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Delete"
+
+[node name="Cancel" type="Button" parent="custom ICs Window/Control/PanelContainer/VBoxContainer/Decision PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="value_changed" from="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer/R HSlider" to="." method="_on_IC_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer/G HSlider" to="." method="_on_IC_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/IC Color VBoxContainer/B HSlider" to="." method="_on_IC_h_slider_value_changed"]
+[connection signal="item_selected" from="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/OptionButton" to="." method="_on_output_option_button_item_selected"]
+[connection signal="value_changed" from="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/R HSlider" to="." method="_on_output_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/G HSlider" to="." method="_on_output_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Body HSplitContainer/element properties PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer/element properties VBoxContainer/Output Color VBoxContainer/B HSlider" to="." method="_on_output_h_slider_value_changed"]
+[connection signal="text_submitted" from="board_element_name_LineEdit" to="VBoxContainer/Body HSplitContainer/elements displayer and board HSplitContainer/UI board elements PanelContainer/MarginContainer/VBoxContainer/Body PanelContainer/MarginContainer/ScrollContainer" method="submit_board_element_name"]
+[connection signal="close_requested" from="create new IC Window" to="create new IC Window" method="_on_close_requested"]
+[connection signal="pressed" from="create new IC Window/Control/PanelContainer/VBoxContainer/Decision HBoxContainer/Create IC" to="create new IC Window" method="save_board_as_an_IC"]
+[connection signal="pressed" from="create new IC Window/Control/PanelContainer/VBoxContainer/Decision HBoxContainer/Cancel" to="create new IC Window" method="_on_close_requested"]
+[connection signal="close_requested" from="custom ICs Window" to="custom ICs Window" method="_on_close_requested"]
+[connection signal="pressed" from="custom ICs Window/Control/PanelContainer/VBoxContainer/Decision PanelContainer/MarginContainer/HBoxContainer/Add" to="custom ICs Window" method="add_custom_IC"]
+[connection signal="pressed" from="custom ICs Window/Control/PanelContainer/VBoxContainer/Decision PanelContainer/MarginContainer/HBoxContainer/Delete" to="custom ICs Window" method="delete_custom_IC"]
+[connection signal="pressed" from="custom ICs Window/Control/PanelContainer/VBoxContainer/Decision PanelContainer/MarginContainer/HBoxContainer/Cancel" to="custom ICs Window" method="_on_close_requested"]

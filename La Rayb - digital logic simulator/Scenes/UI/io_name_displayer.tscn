@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://0y44uvojvat"]
+
+[ext_resource type="Texture2D" uid="uid://cos0g1d03u1ta" path="res://Textures/collapse icon.png" id="1_k5ym0"]
+
+[node name="IO Name Displayer" type="HBoxContainer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Up Button" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_k5ym0")
+expand_mode = 2
+flip_v = true
+
+[node name="Down Button" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_k5ym0")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "IO Name"

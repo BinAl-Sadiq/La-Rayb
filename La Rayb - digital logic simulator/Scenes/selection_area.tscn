@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://6gm7p4iglmxo"]
+
+[ext_resource type="Texture2D" uid="uid://dj025whafcog0" path="res://Textures/white_square.png" id="1_mpde8"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="1_ndmv4"]
+[ext_resource type="Script" path="res://Scripts/SelectionArea.gd" id="3_c4f7j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8qn1"]
+shader = ExtResource("1_ndmv4")
+shader_parameter/body_color = Color(0.45098, 0.894118, 0.372549, 0.392157)
+shader_parameter/line_color = Color(0.45098, 0.894118, 0.372549, 1)
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/thickness = 0.03
+
+[node name="SelectionArea" type="Sprite2D"]
+z_index = 6
+material = SubResource("ShaderMaterial_e8qn1")
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_mpde8")
+script = ExtResource("3_c4f7j")

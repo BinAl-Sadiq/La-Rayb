@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://d67rf46a2syg"]
+
+[ext_resource type="Script" path="res://Scripts/UI/FreeLabel.gd" id="1_j7r41"]
+
+[node name="label_background" type="ColorRect"]
+z_index = 4
+offset_right = 8.0
+offset_bottom = 5.0
+color = Color(0, 0, 0, 0.784314)
+script = ExtResource("1_j7r41")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.5
+offset_right = 2.5
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "t"
+horizontal_alignment = 1
+vertical_alignment = 1

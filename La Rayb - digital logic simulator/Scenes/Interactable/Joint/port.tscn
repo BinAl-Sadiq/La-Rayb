@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbxnp78odh5av"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/Joint/Port.gd" id="1_onehl"]
+[ext_resource type="Texture2D" uid="uid://dj025whafcog0" path="res://Textures/white_square.png" id="2_n7xyo"]
+
+[node name="port" type="Node2D"]
+z_index = 2
+script = ExtResource("1_onehl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.145098, 0.145098, 0.145098, 1)
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_n7xyo")

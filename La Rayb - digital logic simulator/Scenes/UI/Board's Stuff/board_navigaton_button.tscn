@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjy14j753aqqw"]
+
+[ext_resource type="StyleBox" uid="uid://650hf6gv5ala" path="res://Themes & Styles/Boards Navigatoner/unselected/boardNavigatonButtonNormal_Style.tres" id="1_oh16s"]
+[ext_resource type="StyleBox" uid="uid://bl582r4qxl4sl" path="res://Themes & Styles/Boards Navigatoner/unselected/boardNavigatonButtonHover_Style.tres" id="2_d8bp3"]
+[ext_resource type="StyleBox" uid="uid://gxkjt30re4x4" path="res://Themes & Styles/Boards Navigatoner/unselected/boardNavigatonButtonPressed_Style.tres" id="3_2rh5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8aut"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glj0c"]
+
+[node name="Board Navigaton Button" type="Button"]
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("1_oh16s")
+theme_override_styles/hover = ExtResource("2_d8bp3")
+theme_override_styles/pressed = ExtResource("3_2rh5p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t8aut")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glj0c")
+action_mode = 0
+button_mask = 5
+text = "main ...."

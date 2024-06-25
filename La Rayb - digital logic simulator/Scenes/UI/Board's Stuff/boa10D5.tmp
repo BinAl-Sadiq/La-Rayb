@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://r2xm1wg3rc4k"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Board's Stuff/Board.gd" id="1_gyr38"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_u2cun"]
+
+[node name="Board" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_gyr38")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 512.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1000, 512)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+anchor_mode = 0
+script = ExtResource("2_u2cun")
+
+[node name="Board" type="Node2D" parent="SubViewportContainer/SubViewport"]

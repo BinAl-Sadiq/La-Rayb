@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpr2vcekxu2oa"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/BoardComponent/Distributor.gd" id="1_14d5v"]
+[ext_resource type="Texture2D" uid="uid://c7kli831u100e" path="res://Textures/Distributor.png" id="5_14332"]
+
+[node name="Distributor" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_14d5v")
+
+[node name="Lines Holder" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_14332")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://clxc0xpfsr7y4"]
+
+[ext_resource type="Texture2D" uid="uid://brjwqrupbe1ki" path="res://Textures/compass.png" id="1_1ytio"]
+[ext_resource type="Script" path="res://Scripts/Compass.gd" id="1_sp102"]
+
+[node name="compass" type="Node2D"]
+modulate = Color(1, 1, 1, 0.498039)
+script = ExtResource("1_sp102")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 23)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1ytio")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c7yylxdqusxel"]
+
+[node name="UI_components_container VBoxContainer" type="VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0

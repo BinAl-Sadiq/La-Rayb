@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://4kl3x6deounf"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/Cable.gd" id="1_emp81"]
+
+[node name="Cable" type="Node2D"]
+z_index = 1
+z_as_relative = false
+script = ExtResource("1_emp81")
+
+[node name="Line2D" type="Line2D" parent="."]

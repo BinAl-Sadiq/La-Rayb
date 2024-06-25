@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://7r01dbboibmx"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/Joint/Pin.gd" id="1_nyl48"]
+[ext_resource type="Texture2D" uid="uid://p1k2pxn51pyi" path="res://Textures/white_circle.png" id="2_vb2t3"]
+
+[node name="Pin" type="Node2D"]
+z_index = 2
+script = ExtResource("1_nyl48")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.145098, 0.145098, 0.145098, 1)
+texture_filter = 1
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_vb2t3")

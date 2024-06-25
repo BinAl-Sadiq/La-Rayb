@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkn46a8s4ydhb"]
+
+[ext_resource type="Texture2D" uid="uid://dj025whafcog0" path="res://Textures/white_square.png" id="1_iuc74"]
+
+[node name="highlighter" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.196078)
+z_index = 3
+z_as_relative = false
+texture = ExtResource("1_iuc74")
