@@ -3,7 +3,7 @@ class_name ProjectsList
 
 static var instance: ProjectsList = null
 
-const current_version: String = "1.0.0"
+const current_version: String = "1.0.1"
 
 @export var container: VBoxContainer = null
 @export var project_button: PackedScene = null

@@ -1,8 +1,9 @@
 extends Control
 class_name DataManagement
 
-const current_version: String = "1.0.0"
+const current_version: String = "1.0.1"
 var project_path: String = ""
+var project_file: String = ""
 
 static var instance: DataManagement = null
 
@@ -54,7 +55,7 @@ func load_project(input_project_path: String) -> void:
 	if not FileAccess.file_exists(input_project_path):
 		Utilities.abort()
 	
-	var project_file: String = input_project_path.get_file()
+	project_file = input_project_path.get_file()
 	project_path = input_project_path.left(input_project_path.length() - project_file.length())
 	if not (DirAccess.dir_exists_absolute(project_path + "Boards") and FileAccess.file_exists(project_path + "ICs/and.IC") and FileAccess.file_exists(project_path + "ICs/or.IC") and FileAccess.file_exists(project_path + "ICs/not.IC")):
 		Utilities.abort_for_corruption()
@@ -283,7 +284,11 @@ func open_board(board_name: String) -> Board:
 			var component: BoardComponent = new_components[component_key]
 			
 			component.global_position = Vector2(Utilities.ACE(component_values,"position",[TYPE_ARRAY])[0], Utilities.ACE(component_values,"position",[TYPE_ARRAY])[1])
-			component.set_component_name(Utilities.ACE(component_values,"name",[TYPE_STRING]))
+			if component is IO_Component:
+				component.name = Utilities.ACE(component_values,"name",[TYPE_STRING])
+				component.interface.label.text = Utilities.ACE(component_values,"name",[TYPE_STRING])
+			else:
+				component.set_component_name(Utilities.ACE(component_values,"name",[TYPE_STRING]))
 			
 			if type == "IC":
 				#give the inputs/outputs temporary names to prevent names conflict while renaming
@@ -300,8 +305,9 @@ func open_board(board_name: String) -> Board:
 				index = 0
 				for out in Utilities.ACE(attributes,"outputs",[TYPE_ARRAY]):
 					component.set_output_name(index, Utilities.ACE(out,"name",[TYPE_STRING]))
-					var out_color = Utilities.ACE(out,"output color",[TYPE_ARRAY])
-					component.outputs[index].output_color = Color(out_color[0], out_color[1], out_color[2])
+					if Utilities.ACE(out,"type",[TYPE_STRING]) == "pin":
+						var out_color = Utilities.ACE(out,"output color",[TYPE_ARRAY])
+						component.outputs[index].output_color = Color(out_color[0], out_color[1], out_color[2])
 					index += 1
 			elif type == "Distributor":
 				for inp in Utilities.ACE(attributes,"inputs",[TYPE_ARRAY]):

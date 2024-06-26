@@ -216,4 +216,5 @@ func cancel_changing_board_component_name():
 
 func submit_board_component_name(text: String):
 	BoardsController.instance.selected_board.selected_board_components[0].set_component_name(board_component_name_LineEdit.text)
+	BoardsController.instance.grab_focus()
 	cancel_changing_board_component_name()

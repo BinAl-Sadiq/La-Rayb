@@ -74,6 +74,9 @@ func handle_picked_interactables():
 	selected_board.handle_picked_interactables()
 
 func clone_components(src: Board = selected_board) -> void:
+	selected_board.camera.position = src.camera.position
+	selected_board.camera.zoom = src.camera.zoom
+	
 	var to_clone: Array[BoardComponent] = []
 	var cables_to_clone: Array[Cable] = []
 	var to_visit: Array[BoardComponent] = src.selected_board_components.duplicate()
@@ -110,7 +113,10 @@ func clone_components(src: Board = selected_board) -> void:
 	while to_clone.size():
 		var original = to_clone.pop_back() as BoardComponent
 		var new_clone = original.clone.call() as BoardComponent
-		new_clone.set_component_name(original.label.text if original is IC else original.name)
+		if new_clone is IO_Component and original.name.contains("$"):
+			new_clone.set_component_name(original.name.substr(0, original.name.find("$", 1) + 1))
+		else:
+			new_clone.set_component_name(original.label.text if original is IC else original.name)
 		clones[original] = new_clone
 	#attach cables
 	while cables_to_clone.size():

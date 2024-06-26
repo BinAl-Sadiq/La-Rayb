@@ -24,7 +24,7 @@ func _ready():
 		grid.material.set_shader_parameter("UV_offset", grid_offset)
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("Middle Mouse Button") and BoardsController.instance.get_rect().has_point(BoardsController.instance.get_local_mouse_position()):
+	if Input.is_action_just_pressed("Middle Mouse Button") and board == BoardsController.instance.selected_board and BoardsController.instance.get_rect().has_point(BoardsController.instance.get_local_mouse_position()):
 		dragging = true
 		BoardsController.instance.set_default_cursor_shape(Control.CURSOR_DRAG)
 		prevMousePos = get_local_mouse_position()
@@ -98,4 +98,6 @@ func focus_on(target: BoardComponent) -> void:
 func drag() -> void:
 	var currentMousePoss: Vector2 = get_local_mouse_position()
 	position += prevMousePos - currentMousePoss
+	grid_offset += prevMousePos - currentMousePoss
+	grid.material.set_shader_parameter("UV_offset", grid_offset)
 	prevMousePos = currentMousePoss

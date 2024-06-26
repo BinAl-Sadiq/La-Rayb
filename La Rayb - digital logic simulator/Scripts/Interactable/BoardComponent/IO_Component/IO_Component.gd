@@ -56,7 +56,7 @@ func set_component_name(new_name: String) -> void:
 	for c in BoardsController.instance.selected_board.IO_Components:
 		if self is LED and c is Switch or self is Switch and c is LED:
 			if c.name == new_name or (new_name.contains("$") and c.name.contains(new_name)):
-				Utilities.instance.trigger_error_msbox("Inputs and Outputs components cannot have the same name!")
+				Utilities.instance.trigger_error_msbox("Inputs and Outputs components cannot have the same names!")
 				return
 	
 	if new_name.contains("$"):

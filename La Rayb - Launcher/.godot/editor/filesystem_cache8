@@ -1,22 +1,22 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1719341209
+::res://::1719443966
 Borders.gd::GDScript::-1::1719258654::0::1::::<>Control<>::
 close.png::CompressedTexture2D::5039746674228996357::1719162221::1719162226::1::::<><>::
 Decision Buttons.gd::GDScript::-1::1719327508::0::1::::DecisionButtons<>MarginContainer<>::
-export_presets.cfg::TextFile::-1::1719327521::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1719443784::0::1::::<><>::
 icon.svg::CompressedTexture2D::5104844780715234746::1719151095::1719151106::1::::<><>::
-Launcher.tscn::PackedScene::8330496468944870485::1719326890::0::1::::<><>::res://WindowMovement.gd<>res://WindowHeader.gd<>uid://cd2j5kp6chvfp
+Launcher.tscn::PackedScene::8330496468944870485::1719443699::0::1::::<><>::res://WindowMovement.gd<>res://WindowHeader.gd<>uid://cd2j5kp6chvfp::::res://close.png<>uid://dkggc51omeuwx::::res://maximize.png<>uid://1irvujtmn7oh::::res://minimize.png<>res://Projects List.gd<>res://Borders.gd<>res://Decision Buttons.gd<>uid://bbmyuq8md5pjx::::res://Sitka-Display.ttf<>uid://bwvbrh3bofg57::::res://project_button.tscn<>res://New Project Window.gd
 maximize.png::CompressedTexture2D::7873906244046126451::1719162678::1719162823::1::::<><>::
 minimize.png::CompressedTexture2D::1842495712420453035::1719162816::1719162823::1::::<><>::
-New Project Window.gd::GDScript::-1::1719267789::0::1::::<>Window<>::
-Projects List.gd::GDScript::-1::1719251680::0::1::::ProjectsList<>MarginContainer<>::
-Projects.json::JSON::-1::1719267762::0::1::::<><>::
-project_button.tscn::PackedScene::3974018663036541788::1719327508::0::1::::<><>::uid://dgc1infqvovxa::::res://warning.png
+New Project Window.gd::GDScript::-1::1719415121::0::1::::<>Window<>::
+Projects List.gd::GDScript::-1::1719443698::0::1::::ProjectsList<>MarginContainer<>::
+Projects.json::JSON::-1::1719410135::0::1::::<><>::
+project_button.tscn::PackedScene::3974018663036541788::1719443718::0::1::::<><>::uid://dgc1infqvovxa::::res://warning.png
 Sitka-Display.ttf::FontFile::2482875875986922725::1719268041::1719268052::1::::<><>::
 warning.png::CompressedTexture2D::7586117487861963362::1719227473::1719227478::1::::<><>::
 WindowHeader.gd::GDScript::-1::1719268559::0::1::::<>PanelContainer<>::
 WindowMovement.gd::GDScript::-1::1719259222::0::1::::<>Control<>::
-::res://Icon/::1719326856
+::res://Icon/::1719344400
 exe Launcher Icon.png::CompressedTexture2D::5128967193173478331::1719326557::1719326856::1::::<><>::
 exe_Icon.png::CompressedTexture2D::7587129103952493371::1719325011::1719326856::1::::<><>::
 fire.png::CompressedTexture2D::3970761648854307172::1719324784::1719326856::1::::<><>::

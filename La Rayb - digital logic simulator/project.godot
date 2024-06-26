@@ -19,7 +19,7 @@ boot_splash/minimum_display_time=3000
 
 [display]
 
-window/size/mode=3
+window/size/mode=2
 window/subwindows/embed_subwindows=false
 window/stretch/aspect="expand"
 

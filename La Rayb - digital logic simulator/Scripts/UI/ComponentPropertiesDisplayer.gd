@@ -46,14 +46,15 @@ func display_component_properties() -> void:
 			Outputs_Names_VBoxContainer.visible = true
 			Component_Color_VBoxContainer.visible = true
 			Component_ColorPickerButton.color = displayed_component.sprite.modulate
-			Output_Color_VBoxContainer.visible = true
-			output_OptionButton.visible = true
 			
 			for joint in displayed_component.outputs:
 				if joint is Pin:
 					output_OptionButton.add_item(joint.name)
-			output_OptionButton.select(0)
-			_on_output_option_button_item_selected(0)
+			if output_OptionButton.item_count:
+				Output_Color_VBoxContainer.visible = true
+				output_OptionButton.visible = true
+				output_OptionButton.select(0)
+				_on_output_option_button_item_selected(0)
 			
 			Inputs_Names_VBoxContainer.get_child(1).text_submitted.connect(func(new_text: String): displayed_component.set_input_name(0, new_text))
 			Inputs_Names_VBoxContainer.get_child(1).text = displayed_component.inputs[0].name

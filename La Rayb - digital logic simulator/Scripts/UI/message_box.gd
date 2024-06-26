@@ -1,14 +1,16 @@
 extends PanelContainer
 class_name MessageBox
 
-const threshold: float = 0.75
+const life_threshold: float = 0.75
 var life_timer: float =  0.0
+var intro_timer: float =  0.0
 @onready var message_label: Label = $"MarginContainer/HBoxContainer/Message Label"
 @onready var title_label: Label = $"MarginContainer/HBoxContainer/Title Label"
 
 func trigger(title_value: String, title_color: Color, message: String):
-	modulate.a = 1.0
+	modulate.a = 0.0
 	life_timer =  5.0
+	intro_timer = 0.125
 	title_label.modulate = title_color
 	title_label.text = title_value
 	message_label.text = message
@@ -20,9 +22,12 @@ func trigger(title_value: String, title_color: Color, message: String):
 	visible = true
 
 func _process(delta):
-	if life_timer > 0:
+	if intro_timer > 0:
+		intro_timer -= delta
+		modulate.a = 1 - (intro_timer / 0.125)
+	elif life_timer > 0:
 		life_timer -= delta
-		if life_timer < threshold:
-			modulate.a = life_timer / threshold
+		if life_timer < life_threshold:
+			modulate.a = life_timer / life_threshold
 	elif visible:
 		visible = false

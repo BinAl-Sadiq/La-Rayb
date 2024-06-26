@@ -248,7 +248,7 @@ func set_input_name(index: int, new_name: String):
 				Utilities.instance.trigger_error_msbox("This name is already used by another input!")
 			return
 	
-	if new_name == "*" or new_name == "|" or new_name == "!" or new_name == "^" or (inputs[index].name.contains("$") and (new_name.left(0) != "$" or new_name.right(0) != "$" or new_name.count("$") > 2)) or (not inputs[index].name.contains("$") and new_name.contains("$")):
+	if new_name == "*" or new_name == "|" or new_name == "!" or new_name == "^" or (inputs[index].name.contains("$") and (new_name.left(1) != "$" or new_name.right(1) != "$" or new_name.count("$") > 2)) or (not inputs[index] is Port and new_name.contains("$")):
 		Utilities.instance.trigger_error_msbox("Invalid name!")
 		return
 	
@@ -260,8 +260,8 @@ func set_input_name(index: int, new_name: String):
 	inputs[index].name = new_name
 
 func set_output_name(index: int, new_name: String):
-	if outputs[index].name.contains("$"):
-		if new_name.left(0) != "$" or new_name.right(0) != "$" or new_name.count("$") > 2:
+	if outputs[index] is Port:
+		if new_name.left(1) != "$" or new_name.right(1) != "$" or new_name.count("$") > 2:
 			Utilities.instance.trigger_error_msbox("Invalid name!")
 			return
 		functions_names[index].A = new_name
