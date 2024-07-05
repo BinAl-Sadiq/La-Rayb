@@ -1,7 +1,7 @@
 # La Rayb
 ![2024-06-27T01-54-19 @ 535876772](https://github.com/BinAl-Sadiq/La-Rayb/assets/166337968/169a51d0-842b-4066-a5de-fe69adbc6866)
-La Rayb is an early-stage **digital logic simulator** project that aims to facilitate the designing of complex logical systems.
-It is perfect at educational uses, and sucks at professional uses.
+La Rayb is an early-stage **digital logic simulator** project - developed in [Godot Engine](https://godotengine.org/) using [GDScript](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html) - that aims to facilitate the designing of complex logical systems.
+It is perfect at educational uses, but sucks at professional uses.
 
 This project is inspired by [Sebastian Lague's digital logic simulator.](https://github.com/SebLague/Digital-Logic-Sim)
 
